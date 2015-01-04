@@ -19,7 +19,7 @@ namespace Snippets.Basics
             GC.SuppressFinalize(this);
         }
 
-        protected void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!_disposed)
             {
