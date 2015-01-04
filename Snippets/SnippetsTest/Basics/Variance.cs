@@ -25,7 +25,7 @@ namespace SnippetsTest.Basics
         public void VarianceTest()
         {
             IMyVariance<ArgumentException, Exception> test = new MyVariance<Exception, ArgumentException>();
-            MyDelegate<ArgumentException, Exception> MyDel = x => null;
+            MyDelegate<ArgumentException, Exception> MyDel = x => { return null; };
             MyDelegate<Exception, ArgumentException> MyDel2 = x => null;
             MyDel = MyDel2;
         }

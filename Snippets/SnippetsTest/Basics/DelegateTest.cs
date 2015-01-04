@@ -115,6 +115,7 @@ namespace SnippetsTest.Basics
         {
             MyDelegate del1 = x => x + 1;
             MyDelegate del2 = (int x) => x + 1; // can be typed
+            MyDelegate del3 = x => { return x + 1; };
 
             var res = del1(30);
             Assert.AreEqual(31, res);
