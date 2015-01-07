@@ -10,6 +10,7 @@ namespace SnippetsTest.Basics
         void fun1();
         int fun2();
     }
+
     abstract class MyClass : IMyInterface
     {
         public abstract void fun1();
