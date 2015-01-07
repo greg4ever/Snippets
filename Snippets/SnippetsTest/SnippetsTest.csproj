@@ -50,6 +50,7 @@
     <Compile Include="Basics\DisposableFinalizer.cs" />
     <Compile Include="Basics\DisposableSimple.cs" />
     <Compile Include="Basics\ExplicitInterface.cs" />
+    <Compile Include="Basics\InterfaceAndAbstractClass.cs" />
     <Compile Include="Basics\Variance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolboxTest.cs" />
