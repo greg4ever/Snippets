@@ -85,5 +85,31 @@ namespace SnippetsTest.Tree
 
             func(BuildTree()); // 1 2 3 4 5
         }
+
+        [TestMethod]
+        public void DisplayInOrderIteratif()
+        {
+            Action<TreeNode> func = null;
+            func = (TreeNode node) =>
+            {
+                Stack<TreeNode> nextNodes = new Stack<TreeNode>();
+                while (node != null || nextNodes.Any())
+                {
+                    if (node != null)
+                    {
+                        nextNodes.Push(node);
+                        node = node.Left;
+                    }
+                    else
+                    {
+                        node = nextNodes.Pop();
+                        Debug.Write(node.Value + " ");
+                        node = node.Right;
+                    }
+                }
+            };
+
+            func(BuildTree()); // 1 2 3 4 5
+        }
     }
 }
