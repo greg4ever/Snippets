@@ -111,5 +111,57 @@ namespace SnippetsTest.Tree
 
             func(BuildTree()); // 1 2 3 4 5
         }
+
+        [TestMethod]
+        public void MaxDepthRecursive()
+        {
+            Func<TreeNode, int> func = null;
+            func = (TreeNode node) =>
+            {
+                if (node == null)
+                    return 0;
+
+                return(Math.Max(func(node.Left) + 1, func(node.Right) + 1));
+            };
+
+            Assert.AreEqual(3, func(BuildTree()));
+        }
+
+        [TestMethod]
+        public void MaxDepthIterative()
+        {
+            Func<TreeNode, int> func = null;
+            // The idea is to go level by level
+            // At each level, we increment the depth by one
+            func = (TreeNode node) =>
+            {
+                Stack<TreeNode> nextNodes = new Stack<TreeNode>();
+                int depth = 0;
+
+                if (node != null)
+                    nextNodes.Push(node); // 1st level
+
+                while (true)
+                {
+                    var nodeCount = nextNodes.Count;
+                    if(nodeCount == 0) // no deeper level
+                        return depth;
+                    else
+                        ++depth;
+
+                    while (nodeCount > 0) // Remove current level and add next level (childs)
+                    {
+                        var iNode = nextNodes.Pop();
+                        if (iNode.Left != null)
+                            nextNodes.Push(iNode.Left);
+                        if (iNode.Right != null)
+                            nextNodes.Push(iNode.Right);
+                        --nodeCount;
+                    }
+                }
+            };
+
+            Assert.AreEqual(3, func(BuildTree()));
+        }
     }
 }
