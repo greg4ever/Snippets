@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SnippetsTest.Basics
 {
     [TestClass]
-    class Cast
+    public class Cast
     {
         class Base { }
         class Extended : Base { }

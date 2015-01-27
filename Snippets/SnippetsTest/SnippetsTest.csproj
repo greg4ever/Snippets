@@ -45,7 +45,9 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basics\Cast.cs" />
     <Compile Include="Basics\CollectionTest.cs" />
+    <Compile Include="Basics\Struct.cs" />
     <Compile Include="Basics\DelegateTest.cs" />
     <Compile Include="Basics\DisposableFinalizer.cs" />
     <Compile Include="Basics\DisposableSimple.cs" />
