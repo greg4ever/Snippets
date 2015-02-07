@@ -8,7 +8,8 @@ namespace SnippetsTest.Exo
 {
     /*
      * 2D array - starting a 0,0 going to i-1,j-1, only down and right
-     * How nmay possible path?
+     * Can go only on case = 1
+     * How many possible path?
      * 
      * 1 1 1 1
      * 1 1 1 1
