@@ -27,4 +27,13 @@ namespace SnippetsTest
         {
         }
     }
+
+    [TestClass]
+    public class ToolBoxTest
+    {
+        public static void Main(string[] args)
+        {
+        }
+
+    }
 }

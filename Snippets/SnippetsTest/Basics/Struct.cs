@@ -14,11 +14,6 @@ namespace SnippetsTest.Basics
             public int AA { get; set; }
             public double BB { get; set; }
 
-            public A(int a)
-            {
-                AA = a;
-            }
-
             public void Run()
             {
             }
