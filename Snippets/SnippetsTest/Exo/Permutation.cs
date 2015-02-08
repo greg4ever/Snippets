@@ -9,11 +9,74 @@ namespace SnippetsTest.Exo
     [TestClass]
     public class Permutation
     {
-        [TestMethod]
+        //[TestMethod]
         public void Run()
         {
             var permutations = GetPermutations(5, new[] { 2, 3, 5, 6, 7, 9 });
             var res = permutations.Count;
+        }
+
+        [TestMethod]
+        // 2 3 4
+        // 2 4 3
+        // 3 2 4
+        // 3 4 2
+        // 4 2 3
+        // 4 3 2
+        public void RunHeapAlgo()
+        {
+            var permutations = HeapAlgoIter(new List<int> { 2, 3, 4 }, 3);
+        }
+
+        private static void swap(List<int> v, int i, int j)
+        {
+            int t = v[i]; v[i] = v[j]; v[j] = t;
+        }
+
+        private static List<List<int>> HeapAlgoIter(List<int> ints, int n)
+        {
+            var res = new List<List<int>>();
+            var idx = new int[n];
+
+            res.Add(ints.ToList());
+
+            for (int i = 1; i < n; )
+            {
+                if (idx[i] < i)
+                {
+                    int swapIdx = i % 2 * idx[i];
+                    swap(ints, i % 2 == 1 ? 0 : swapIdx, i);
+                    res.Add(ints.ToList());
+                    idx[i]++;
+                    i = 1;                    
+                }
+                else
+                { 
+                    idx[i] = 0;
+                    i++;
+                }
+            }
+
+            return res;
+        }
+
+        static List<List<int>> HeapAlgoRecu(List<int> ints, int n)
+        {
+            var res = new List<List<int>>();
+            if (n == 1)
+            {
+                res.Add(ints.ToList());
+                return res;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                res.AddRange(HeapAlgoRecu(ints, n - 1));
+                swap(ints, n % 2 == 1 ? 0 : i, n - 1);
+            }
+
+            return res;
+
         }
 
         // Get the unique 3-digits permutations divisable by 5
