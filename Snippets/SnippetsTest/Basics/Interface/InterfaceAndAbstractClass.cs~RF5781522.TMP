@@ -11,7 +11,6 @@ namespace SnippetsTest.Basics
         int fun2();
     }
 
-    // If an abstract class implements an interface, you must declare the function (abstract)
     abstract class MyClass : IMyInterface
     {
         public abstract void fun1();

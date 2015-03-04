@@ -17,7 +17,7 @@ namespace SnippetsTest.Basics
             _list.Add(item);
         }
         
-        // Explicit interface, for non generic
+        // Explicit interface, for non generic types
         IEnumerator IEnumerable.GetEnumerator() { return this.GetEnumerator(); }
 
         public IEnumerator<T> GetEnumerator()
