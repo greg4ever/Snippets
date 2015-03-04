@@ -5,7 +5,6 @@ using System.Linq;
 using NUnit.Framework;
 using System.Threading;
 using NUnit.Framework;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace SnippetsTest.Basics
 {

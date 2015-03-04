@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NUnit.Framework;
+using MyDico = System.Collections.Generic.Dictionary<SandBox.Pair, int>;
 
-using MyDico = System.Collections.Generic.Dictionary<Solution.Pair, int>;
-
-public class Solution
+[TestFixture]
+public class SandBox
 {
-    public static void Main(String[] args)
+    [Test]
+    public void MyTest()
     {
         var line = MyReadInts(2);
         var N = line[0];
