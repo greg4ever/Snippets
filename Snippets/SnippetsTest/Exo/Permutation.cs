@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace SnippetsTest.Exo
 {
-    [TestClass]
+    [TestFixture]
     public class Permutation
     {
-        //[TestMethod]
+        //[Test]
         public void Run()
         {
             var permutations = GetPermutations(5, new[] { 2, 3, 5, 6, 7, 9 });
             var res = permutations.Count;
         }
 
-        [TestMethod]
+        [Test]
         // 2 3 4
         // 2 4 3
         // 3 2 4

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace SnippetsTest.Exo
 {
@@ -17,10 +17,10 @@ namespace SnippetsTest.Exo
      */
     
 
-    [TestClass]
+    [TestFixture]
     public class NumberOfPaths
     {
-        [TestMethod]
+        [Test]
         public void Run()
         {
             var maze = new int[][] {

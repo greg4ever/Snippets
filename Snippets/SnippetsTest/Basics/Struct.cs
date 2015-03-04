@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using NUnit.Framework;
 
 namespace SnippetsTest.Basics
 {
-    [TestClass]
+    [TestFixture]
     public class Struct
     {
         struct A
@@ -19,7 +20,7 @@ namespace SnippetsTest.Basics
             }
         }
 
-        [TestMethod]
+        [Test]
         public void CannotUseUnitializedMember()
         {
             A aa;

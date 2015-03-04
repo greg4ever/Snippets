@@ -2,6 +2,7 @@ bin
 debug
 TestResults
 *.suo
+*.user
 
 # Windows image file caches
 Thumbs.db

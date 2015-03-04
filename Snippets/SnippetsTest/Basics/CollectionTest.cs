@@ -2,8 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Collections;
+using NUnit.Framework;
 
 namespace SnippetsTest.Basics
 {
@@ -25,10 +26,10 @@ namespace SnippetsTest.Basics
     }
 
 
-    [TestClass]
+    [TestFixture]
     public class CollectionTest
     {
-        [TestMethod]
+        [Test]
         public void CollectionInitializer()
         {
             var g = new CustomCollection<int>() { 1, 2, 3 };

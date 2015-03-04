@@ -2,12 +2,12 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Diagnostics;
 
 namespace SnippetsTest.Tree
 {
-    [TestClass]
+    [TestFixture]
     public class TreeTest
     {
         private static TreeNode BuildTree()
@@ -26,7 +26,7 @@ namespace SnippetsTest.Tree
             return deux;
         }      
 
-        [TestMethod]
+        [Test]
         public void DisplayPreOrderRecursif()
         {
             Action<TreeNode> func = null;
@@ -42,7 +42,7 @@ namespace SnippetsTest.Tree
             func(BuildTree()); // 2 1 4 3 5
         }
 
-        [TestMethod]
+        [Test]
         public void DisplayPreOrderIteratif()
         {
             Action<TreeNode> func = null;
@@ -69,7 +69,7 @@ namespace SnippetsTest.Tree
             func(BuildTree()); // 2 1 4 3 5
         }
 
-        [TestMethod]
+        [Test]
         public void DisplayInOrderRecursif()
         {
             Action<TreeNode> func = null;
@@ -86,7 +86,7 @@ namespace SnippetsTest.Tree
             func(BuildTree()); // 1 2 3 4 5
         }
 
-        [TestMethod]
+        [Test]
         public void DisplayInOrderIteratif()
         {
             Action<TreeNode> func = null;
@@ -112,7 +112,7 @@ namespace SnippetsTest.Tree
             func(BuildTree()); // 1 2 3 4 5
         }
 
-        [TestMethod]
+        [Test]
         public void MaxDepthRecursive()
         {
             Func<TreeNode, int> func = null;
@@ -127,7 +127,7 @@ namespace SnippetsTest.Tree
             Assert.AreEqual(3, func(BuildTree()));
         }
 
-        [TestMethod]
+        [Test]
         public void MaxDepthIterative()
         {
             Func<TreeNode, int> func = null;

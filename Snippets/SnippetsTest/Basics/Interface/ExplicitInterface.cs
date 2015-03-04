@@ -7,7 +7,7 @@ namespace SnippetsTest.Basics
 {
     class TestInterface
     {
-        static void Main()
+        static void Test()
         {
             SampleClass sc = new SampleClass();
             IControl ctrl = (IControl)sc;

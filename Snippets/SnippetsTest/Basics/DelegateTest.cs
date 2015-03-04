@@ -2,12 +2,14 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Threading;
+using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace SnippetsTest.Basics
 {
-    [TestClass]
+    [TestFixture]
     public class DelegateTest
     {
         public delegate int MyDelegate(int x);
@@ -17,7 +19,7 @@ namespace SnippetsTest.Basics
             return x + 1;
         }
 
-        [TestMethod]
+        [Test]
         public void OldStyleDelegate()
         {
             MyDelegate del1 = new MyDelegate(MyFunction);
@@ -27,7 +29,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
 
-        [TestMethod]
+        [Test]
         public void OldStyleDelegateInvoke()
         {
             var del1 = new MyDelegate(MyFunction);
@@ -35,7 +37,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
 
-        [TestMethod]
+        [Test]
         public void OldStyleDelegateBeginInvokeEndInvoke()
         {
             var del1 = new MyDelegate(MyFunction);
@@ -45,7 +47,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
 
-        [TestMethod]
+        [Test]
         public void OldStyleDelegateBeginInvokeWaitHandle()
         {
             var del1 = new MyDelegate(MyFunction);
@@ -56,7 +58,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
         
-        [TestMethod]
+        [Test]
         public void OldStyleDelegateBeginInvokeCallback()
         {
             ManualResetEvent mre1 = new ManualResetEvent(false);
@@ -68,7 +70,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
 
-        [TestMethod]
+        [Test]
         public void OldStyleDelegateBeginInvokePoll()
         {
             var del1 = new MyDelegate(MyFunction);
@@ -81,7 +83,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
    
-        [TestMethod]
+        [Test]
         public void AnonymousDelegate()
         {
             MyDelegate del1 = delegate(int x)
@@ -93,14 +95,14 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(31, res);
         }
 
-        [TestMethod]
+        [Test]
         public void IgnoreParameterDelegate()
         {
             MyDelegate del1 = delegate { return 0; };
             // MyDelegate del2 = () => { return 0; }; // KO
         }
 
-        [TestMethod]
+        [Test]
         public void MultiDelegate()
         {
             MyDelegate del1 = new MyDelegate(MyFunction);
@@ -110,7 +112,7 @@ namespace SnippetsTest.Basics
             Assert.AreEqual(3, del1.GetInvocationList().Length);
         }
 
-        [TestMethod]
+        [Test]
         public void LambdaExpression()
         {
             MyDelegate del1 = x => x + 1;
@@ -123,13 +125,13 @@ namespace SnippetsTest.Basics
 
         delegate void MyDelegate2(ArgumentException o);
         void MyMethod2(Exception list) { }
-        [TestMethod]
+        [Test]
         public void ParameterTypeContravariance() // c# 2
         {
             MyDelegate2 del1 = MyMethod2; // ArgumentException can match the Exception type
         }
 
-        [TestMethod]
+        [Test]
         public void ContravarianceDoesNOTApplyToAnonymousMethod()
         {
             MyDelegate2 del1 = (ArgumentException e) => { ;}; // OK
@@ -138,7 +140,7 @@ namespace SnippetsTest.Basics
 
         delegate Exception MyDelegate3();
         ArgumentException MyMethod3() { return null;  }
-        [TestMethod]
+        [Test]
         public void ReturnTypeCovariance()
         {
             MyDelegate3 del1 = MyMethod3;
