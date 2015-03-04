@@ -54,6 +54,7 @@
     <Compile Include="Basics\Cast.cs" />
     <Compile Include="Basics\Collection.cs" />
     <Compile Include="Basics\Inheritance.cs" />
+    <Compile Include="Basics\MethodGroup.cs" />
     <Compile Include="Basics\Struct.cs" />
     <Compile Include="Basics\DelegateTest.cs" />
     <Compile Include="Basics\DisposableFinalizer.cs" />
