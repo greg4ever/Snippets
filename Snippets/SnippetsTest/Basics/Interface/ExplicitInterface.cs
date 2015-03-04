@@ -9,7 +9,7 @@ namespace SnippetsTest.Basics
     {
         static void Test()
         {
-            SampleClass sc = new SampleClass();
+            var sc = new SampleClass();
             IControl ctrl = (IControl)sc;
             ISurface srfc = (ISurface)sc;
 
@@ -29,6 +29,7 @@ namespace SnippetsTest.Basics
     {
         void Paint();
     }
+
     class SampleClass : IControl, ISurface
     {
         // Both ISurface.Paint and IControl.Paint call this method.  
@@ -43,7 +44,7 @@ namespace SnippetsTest.Basics
     // Paint method in SampleClass 
     // Paint method in SampleClass
 
-
+    // If we now use SampleClass2
     public class SampleClass2 : IControl, ISurface
     {
         void IControl.Paint()

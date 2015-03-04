@@ -17,7 +17,9 @@ namespace SnippetsTest.Basics
             _list.Add(item);
         }
         
+        // Explicit interface, for non generic
         IEnumerator IEnumerable.GetEnumerator() { return this.GetEnumerator(); }
+
         public IEnumerator<T> GetEnumerator()
         {
             foreach (var item in _list)
@@ -27,12 +29,18 @@ namespace SnippetsTest.Basics
 
 
     [TestFixture]
-    public class CollectionTest
+    public class Collection
     {
         [Test]
         public void CollectionInitializer()
         {
-            var g = new CustomCollection<int>() { 1, 2, 3 };
+            var g = new CustomCollection<int> { 1, 2, 3 };
+
+            var dico = new Dictionary<int, string>
+            {
+                {1, "Greg"},
+                {2, "Gecko"}
+            };
         }
     }
 }
