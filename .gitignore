@@ -3,6 +3,7 @@ debug
 TestResults
 *.suo
 *.user
+*.tmp
 
 # Windows image file caches
 Thumbs.db
