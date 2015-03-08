@@ -21,7 +21,7 @@ namespace SnippetsTest.Basics
 
     public class B : IDisposable
     {
-        private bool _disposed;
+        private bool _disposed; // I think if the class is abstract, we don't need this
         private SafeHandle _resource;
 
         public void Dispose()

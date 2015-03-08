@@ -51,6 +51,7 @@ namespace Snippets.Basics
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)
@@ -79,6 +80,8 @@ namespace Snippets.Basics
     public class Z : Y
     {
         private bool _disposed;
+        private FileStream _resourceUnmanaged;
+        private SafeHandle _resourceManaged;
 
         protected override void Dispose(bool disposing)
         {
@@ -86,8 +89,12 @@ namespace Snippets.Basics
             {
                 if (disposing)
                 {
-
+                    if (_resourceManaged != null)
+                        _resourceManaged.Dispose();
                 }
+
+                if (_resourceUnmanaged != null)
+                    _resourceUnmanaged.Dispose();
 
                 _disposed = true;
             }

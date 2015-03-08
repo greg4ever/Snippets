@@ -60,8 +60,8 @@
     <Compile Include="Basics\Operator.cs" />
     <Compile Include="Basics\Struct.cs" />
     <Compile Include="Basics\Delegate.cs" />
-    <Compile Include="Basics\DisposableFinalizer.cs" />
-    <Compile Include="Basics\DisposableSimple.cs" />
+    <Compile Include="Basics\Disposable\2. DisposableFinalizer.cs" />
+    <Compile Include="Basics\Disposable\1. DisposableSimple.cs" />
     <Compile Include="Basics\Interface\ExplicitInterface.cs" />
     <Compile Include="Basics\Interface\InterfaceAndAbstractClass.cs" />
     <Compile Include="Basics\Interface\InterfaceHiding.cs" />
