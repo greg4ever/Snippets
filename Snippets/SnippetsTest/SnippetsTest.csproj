@@ -68,6 +68,17 @@
     <Compile Include="Basics\Interface\InterfaceAndAbstractClass.cs" />
     <Compile Include="Basics\Interface\InterfaceHiding.cs" />
     <Compile Include="Basics\Variance.cs" />
+    <Compile Include="Design Patterns\1. Creational\Factory.cs" />
+    <Compile Include="Design Patterns\1. Creational\Fluent.cs" />
+    <Compile Include="Design Patterns\1. Creational\Prototype.cs" />
+    <Compile Include="Design Patterns\1. Creational\Singleton.cs" />
+    <Compile Include="Design Patterns\2. Structural\Adapter.cs" />
+    <Compile Include="Design Patterns\2. Structural\Decorator.cs" />
+    <Compile Include="Design Patterns\2. Structural\Facade.cs" />
+    <Compile Include="Design Patterns\2. Structural\FlyWeight.cs" />
+    <Compile Include="Design Patterns\3. Behavioral\Observer.cs" />
+    <Compile Include="Design Patterns\3. Behavioral\State.cs" />
+    <Compile Include="Design Patterns\3. Behavioral\Visitor.cs" />
     <Compile Include="Exo\NumberOfPaths.cs" />
     <Compile Include="Exo\Permutation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,7 +87,10 @@
     <Compile Include="Tree\TreeTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Design Patterns\" />
+    <Folder Include="Design Patterns\4. Concurrency\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Design Patterns\DesignPatternGoodWebsite.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
