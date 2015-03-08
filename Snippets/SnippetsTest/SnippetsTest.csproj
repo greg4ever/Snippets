@@ -57,6 +57,7 @@
     <Compile Include="Basics\AbstractClass.cs" />
     <Compile Include="Basics\AsyncAwait.cs" />
     <Compile Include="Basics\Cast.cs" />
+    <Compile Include="Basics\Closure.cs" />
     <Compile Include="Basics\Collection.cs" />
     <Compile Include="Basics\Coroutine.cs" />
     <Compile Include="Basics\Indexer.cs" />

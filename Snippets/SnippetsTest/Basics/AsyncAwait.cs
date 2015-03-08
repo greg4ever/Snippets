@@ -24,5 +24,17 @@ namespace SnippetsTest.Basics
 
             Assert.IsTrue(value);
         }
+
+        [Test]
+        public void Run1() // Is similar to Run() but in C# 4
+        {
+            SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+            var currentScheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            bool value = false;
+            var task = Task.Factory.StartNew(() => Thread.Sleep(5000)).ContinueWith((x) => value = true, currentScheduler);
+            task.Wait();
+
+            Assert.IsTrue(value);
+        }
     }
 }
