@@ -4,8 +4,13 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace SnippetsTest.Basics
+namespace SnippetsTest.Basics.Cast
 {
+    public interface IInterface { }
+
+    public class MyClass { }
+    public sealed class MySealedClass { }
+
     [TestFixture]
     public class Cast
     {
@@ -22,6 +27,13 @@ namespace SnippetsTest.Basics
             var c = (Extended)b; // compile but throws InvalidCastException
             // var d = (Other)b; does not compile, safe type check
             // var d = b as Other; does not compile neither
+        }
+
+        [Test]
+        public void CastWithSealed()
+        {
+            IInterface i1 = (IInterface) new MyClass(); // compile, because a subclass of MyClass could implement IInterface
+            // IInterface i2 = (IInterface) new MySealedClass(); does not compile. No subclass can implement IInterface.
         }
     }
 }
