@@ -25,6 +25,11 @@ namespace SnippetsTest.Basics.Operator
             return new Operator(o1._value + o2._value);
         }
 
+        public static Operator operator ++(Operator o1)
+        {
+            return new Operator(o1._value + 1);
+        }
+
         public static implicit operator Operator(bool b)
         {
             return new Operator(b ? 1 : 0);
@@ -51,6 +56,8 @@ namespace SnippetsTest.Basics.Operator
             var op1 = new Operator(4);
             var op2 = new Operator(5);
             Assert.AreEqual(9, (op1 + op2).Value);
+            ++op2;
+            Assert.AreEqual(6, op2.Value);
         }
 
         [Test]

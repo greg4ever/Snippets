@@ -19,7 +19,7 @@ namespace SnippetsTest.Basics
             var a = (Exception)null; // valid but throws InvalidCastException
 
             var b = new Base();
-            var c = (Extended)b; // compile but 
+            var c = (Extended)b; // compile but throws InvalidCastException
             // var d = (Other)b; does not compile, safe type check
             // var d = b as Other; does not compile neither
         }
