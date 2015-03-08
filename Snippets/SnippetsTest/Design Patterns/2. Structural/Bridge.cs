@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TestTmp._2._Structural.Adapter
+namespace TestTmp._2._Structural.Bridge
 {
     interface IOption
     {
@@ -14,29 +14,19 @@ namespace TestTmp._2._Structural.Adapter
     {
         private int _maturity;
         private double _strike;
+        private readonly OptionPricer _optionPricer = new OptionPricer();
 
         public virtual int Price()
+        {
+            return _optionPricer.PriceMe();
+        }
+    }
+
+    class OptionPricer
+    {
+        public int PriceMe()
         {
             return 10;
         }
     }
-
-    class BarrierOption : Option
-    {
-        private readonly BarrierOptionExternalLib _adaptee = new BarrierOptionExternalLib();
-
-        public override int Price()
-        {
-            return _adaptee.PriceMe();
-        }
-    }
-
-    class BarrierOptionExternalLib
-    {
-        public int PriceMe()
-        {
-            return 20;
-        }
-    }
-    
 }

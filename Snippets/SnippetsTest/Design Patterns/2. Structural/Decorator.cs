@@ -15,22 +15,22 @@ namespace TestTmp._2._Structural
         private int _maturity;
         private double _strike;
 
-        public int Price()
+        public virtual int Price()
         {
             return 10;
         }
     }
 
-    class BarrierOption : IOption // can be inherited
+    class BarrierOption : Option
     {
-        private IOption _option;
+        private readonly IOption _option;
 
         public BarrierOption(IOption option)
         {
             _option = option;
         }
 
-        public int Price()
+        public override int Price()
         {
             return _option.Price() + 1;
         }

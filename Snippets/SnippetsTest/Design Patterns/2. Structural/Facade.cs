@@ -29,17 +29,11 @@ namespace TestTmp._2._Structural
 
     class DataRequestor
     {
-        public void RequestData()
-        {
-            
-        }
+        public void RequestData() { }
     }
 
     class PriceRequestor
     {
-        public void RequestPrice()
-        {
-            
-        }
+        public void RequestPrice() { }
     }
 }

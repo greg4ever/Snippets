@@ -68,11 +68,12 @@
     <Compile Include="Basics\Interface\InterfaceAndAbstractClass.cs" />
     <Compile Include="Basics\Interface\InterfaceHiding.cs" />
     <Compile Include="Basics\Variance.cs" />
-    <Compile Include="Design Patterns\1. Creational\Factory.cs" />
+    <Compile Include="Design Patterns\1. Creational\FactoryMethod.cs" />
     <Compile Include="Design Patterns\1. Creational\Fluent.cs" />
     <Compile Include="Design Patterns\1. Creational\Prototype.cs" />
     <Compile Include="Design Patterns\1. Creational\Singleton.cs" />
     <Compile Include="Design Patterns\2. Structural\Adapter.cs" />
+    <Compile Include="Design Patterns\2. Structural\Bridge.cs" />
     <Compile Include="Design Patterns\2. Structural\Decorator.cs" />
     <Compile Include="Design Patterns\2. Structural\Facade.cs" />
     <Compile Include="Design Patterns\2. Structural\FlyWeight.cs" />
