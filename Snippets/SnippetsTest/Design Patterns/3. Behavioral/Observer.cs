@@ -12,10 +12,7 @@ namespace TestTmp._3._Behavioral
     
     class Observer : IObserver
     {
-        public void Update()
-        {
-            
-        }
+        public void Update() { }
     }
 
     interface IObservable
