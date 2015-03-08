@@ -6,6 +6,8 @@ using NUnit.Framework;
 
 namespace SnippetsTest.Basics.Operator
 {
+    // operator are overloaded, not overriden
+    // http://geekswithblogs.net/BlackRabbitCoder/archive/2011/07/07/c.net-little-pitfalls-operators-are-overloaded-not-overridden.aspx
     class Operator
     {
         private readonly int _value;
