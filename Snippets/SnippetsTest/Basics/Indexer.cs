@@ -8,7 +8,7 @@ namespace SnippetsTest.Basics.Indexer
 {
     class Indexer
     {
-        private List<int> _list = new List<int>(); 
+        private readonly List<int> _list = new List<int>(); 
 
         public int this[int a, int b, int c]
         {
