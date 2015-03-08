@@ -6,13 +6,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace SnippetsTest.Basics
+namespace SnippetsTest.Basics.Await
 {
     [TestFixture]
     class TestClass
     {
         [Test]
-        public async void Run() // C# 5
+        public async Task<int> Run() // C# 5 - The return type with async must be void, Task or Task<T>
         {
             bool value = false;
             var task = Task.Factory.StartNew(() =>
@@ -23,6 +23,7 @@ namespace SnippetsTest.Basics
             await task;
 
             Assert.IsTrue(value);
+            return 0;
         }
 
         [Test]
