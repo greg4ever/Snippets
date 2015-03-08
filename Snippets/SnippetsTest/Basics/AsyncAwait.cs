@@ -12,7 +12,7 @@ namespace SnippetsTest.Basics
     class TestClass
     {
         [Test]
-        public async void Run()
+        public async void Run() // C# 5
         {
             bool value = false;
             var task = Task.Factory.StartNew(() =>

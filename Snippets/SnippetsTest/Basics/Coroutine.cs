@@ -10,6 +10,7 @@ namespace SnippetsTest.Basics.Coroutine
     {
         public IEnumerable<int> GetEnumerable1()
         {
+            // Generate a state machine behind
             yield return 1;
             yield return 3;
         }
