@@ -59,7 +59,7 @@
     <Compile Include="Basics\MethodGroup.cs" />
     <Compile Include="Basics\Operator.cs" />
     <Compile Include="Basics\Struct.cs" />
-    <Compile Include="Basics\DelegateTest.cs" />
+    <Compile Include="Basics\Delegate.cs" />
     <Compile Include="Basics\DisposableFinalizer.cs" />
     <Compile Include="Basics\DisposableSimple.cs" />
     <Compile Include="Basics\Interface\ExplicitInterface.cs" />

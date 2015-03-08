@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace SnippetsTest.Basics
 {
     [TestFixture]
-    public class DelegateTest
+    public class DelegateFun
     {
         public delegate int MyDelegate(int x);
 
@@ -35,6 +35,15 @@ namespace SnippetsTest.Basics
             var res = del1.Invoke(30);
             Assert.AreEqual(31, res);
         }
+
+        /*
+            Do you mean Delegate.Invoke/BeginInvoke or Control.Invoke/BeginInvoke?
+
+            Delegate.Invoke: Executes synchronously, on the same thread.
+            Delegate.BeginInvoke: Executes asynchronously, on a threadpool thread.
+            Control.Invoke: Executes on the UI thread, but calling thread waits for completion before continuing.
+            Control.BeginInvoke: Executes on the UI thread, and calling thread doesn't wait for completion.
+        */
 
         [Test]
         public void OldStyleDelegateBeginInvokeEndInvoke()
@@ -98,11 +107,11 @@ namespace SnippetsTest.Basics
         public void IgnoreParameterDelegate()
         {
             MyDelegate del1 = delegate { return 0; };
-            // MyDelegate del2 = () => { return 0; }; // KO
+            // MyDelegate del2 = () => { return 0; }; // KO, anonymous delegate can be useful in this case
         }
 
         [Test]
-        public void MultiDelegate()
+        public void MultiDelegate() // delegate are immutable
         {
             MyDelegate del1 = new MyDelegate(MyFunction);
             del1 += new MyDelegate(MyFunction);
@@ -121,6 +130,8 @@ namespace SnippetsTest.Basics
             var res = del1(30);
             Assert.AreEqual(31, res);
         }
+
+        // Contravariance / Covariance 
 
         delegate void MyDelegate2(ArgumentException o);
         void MyMethod2(Exception list) { }
