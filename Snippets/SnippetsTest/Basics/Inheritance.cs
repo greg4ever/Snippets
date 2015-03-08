@@ -34,7 +34,7 @@ namespace SnippetsTest.Basics.Inheritance
         [Test]
         public void Run()
         {
-            B a = new B();
+            var a = new B();
             a.Function(1); // display B.Double
         }
     }
