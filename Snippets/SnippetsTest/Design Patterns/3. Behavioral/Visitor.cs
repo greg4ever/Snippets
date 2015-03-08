@@ -40,7 +40,7 @@ namespace TestTmp._3._Behavioral.Visitor
         }
     }
 
-    class Pricer : IPricerVisitor
+    class MyPricer : IPricerVisitor
     {
         private double _res;
 
