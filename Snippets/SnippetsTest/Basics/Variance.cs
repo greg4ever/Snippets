@@ -5,6 +5,8 @@ using System.Text;
 
 namespace SnippetsTest.Basics
 {
+    // T: in = contravariance
+    // R: out = covariance
     interface IMyVariance<in T, out R>
     {
         R MyFunction(T input);
@@ -25,6 +27,7 @@ namespace SnippetsTest.Basics
         public void VarianceTest()
         {
             IMyVariance<ArgumentException, Exception> test = new MyVariance<Exception, ArgumentException>();
+
             MyDelegate<ArgumentException, Exception> MyDel = x => { return null; };
             MyDelegate<Exception, ArgumentException> MyDel2 = x => null;
             MyDel = MyDel2;
