@@ -60,6 +60,7 @@
     <Compile Include="Basics\Closure.cs" />
     <Compile Include="Basics\Collection.cs" />
     <Compile Include="Basics\Coroutine.cs" />
+    <Compile Include="Basics\DataStructure.cs" />
     <Compile Include="Basics\Indexer.cs" />
     <Compile Include="Basics\Inheritance.cs" />
     <Compile Include="Basics\MethodGroup.cs" />
