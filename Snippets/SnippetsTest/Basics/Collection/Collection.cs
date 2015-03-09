@@ -12,6 +12,9 @@ namespace SnippetsTest.Basics.DataStructure
     [TestFixture]
     class Test
     {
+        /*
+         * Non associative collections
+         */
         public void List() // backed as an array
         {
             var list = new List<int>();
@@ -44,6 +47,26 @@ namespace SnippetsTest.Basics.DataStructure
             head = stack.Pop();
         }
 
+        public void Hashset() // undordered
+        {
+            var set = new HashSet<int>();
+            set.Add(1);
+            set.Remove(1);
+        }
+
+        public void SortedSet() // Backed as a Binary Search Tree, ordered
+        {
+            var set = new SortedSet<int>();
+            set.Add(1);
+            set.Contains(1);
+            set.Remove(1);
+        }
+
+
+        /*
+         * Associative collections
+         */
+
         [Test]
         public void Dictionary() // unordered
         {
@@ -55,11 +78,16 @@ namespace SnippetsTest.Basics.DataStructure
             dico[1] = 2; // override value
         }
 
-        public void Hashset()
+        // insertion O(n)
+        // backed as an ordered list
+        // array indexing is faster than following tree node, efficient if we load all the data upfront
+        public void SortedList()
         {
-            var set = new HashSet<int>();
-            set.Add(1);
-            set.Remove(1);
+            var sList = new SortedList<int, int>();
+            sList[1] = 1;
+            sList.Add(2, 2);
+            int res;
+            sList.TryGetValue(1, out res);
         }
 
         public void SortedDictionary() // backed a a binary search tree, ordered
@@ -69,18 +97,6 @@ namespace SnippetsTest.Basics.DataStructure
             sDico.Add(1, 1);
             int res;
             sDico.TryGetValue(1, out res);
-        }
-
-        // insertion O(n)
-        // backed as a BST + an ordered list
-        // array indexing is faster than following tree node, efficient if we load all the data upfront
-        public void SortedList() 
-        {
-            var sList = new SortedList<int, int>();
-            sList[1] = 1;
-            sList.Add(2, 2);
-            int res;
-            sList.TryGetValue(1, out res);
         }
     }
 }
