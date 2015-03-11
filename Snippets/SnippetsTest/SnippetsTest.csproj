@@ -74,6 +74,7 @@
     <Compile Include="Basics\Interface\ExplicitInterface.cs" />
     <Compile Include="Basics\Interface\InterfaceAndAbstractClass.cs" />
     <Compile Include="Basics\Interface\InterfaceHiding.cs" />
+    <Compile Include="Basics\TPL\Basics.cs" />
     <Compile Include="Basics\Variance.cs" />
     <Compile Include="Design Patterns\1. Creational\FactoryMethod.cs" />
     <Compile Include="Design Patterns\1. Creational\Fluent.cs" />
