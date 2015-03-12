@@ -107,6 +107,7 @@ namespace SnippetsTest.Basics
         public void IgnoreParameterDelegate()
         {
             MyDelegate del1 = delegate { return 0; };
+            MyDelegate del2 = delegate(int x) { return x + 1; };
             // MyDelegate del2 = () => { return 0; }; // KO, anonymous delegate can be useful in this case
         }
 
