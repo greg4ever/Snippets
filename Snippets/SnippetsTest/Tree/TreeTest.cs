@@ -12,15 +12,15 @@ namespace SnippetsTest.Tree
     {
         private static TreeNode BuildTree()
         {
-            var un = new TreeNode { Value = 1 };
-            var deux = new TreeNode { Value = 2 };
-            var trois = new TreeNode { Value = 3 };
+            var un     = new TreeNode { Value = 1 };
+            var deux   = new TreeNode { Value = 2 };
+            var trois  = new TreeNode { Value = 3 };
             var quatre = new TreeNode { Value = 4 };
-            var cinq = new TreeNode { Value = 5 };
+            var cinq   = new TreeNode { Value = 5 };
 
-            deux.Left = un;
-            deux.Right = quatre;
-            quatre.Left = trois;
+            deux.Left    = un;
+            deux.Right   = quatre;
+            quatre.Left  = trois;
             quatre.Right = cinq;
 
             return deux;
