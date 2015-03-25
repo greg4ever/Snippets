@@ -91,6 +91,7 @@
     <Compile Include="Design Patterns\3. Behavioral\Visitor.cs" />
     <Compile Include="Exo\Fibo.cs" />
     <Compile Include="Exo\NumberOfPaths.cs" />
+    <Compile Include="Exo\Pair.cs" />
     <Compile Include="Exo\Permutation.cs" />
     <Compile Include="Exo\PrimeNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -23,7 +23,7 @@ namespace SnippetsTest.Exo
         // 4 2 3
         // 4 3 2
         [Test]
-        public void RunHeapAlgo()
+        public void RunHeapAlgo() // O(n!)
         {
             var permutations = HeapAlgoRecu(new List<int> { 2, 3, 4 }, 3);
         }
