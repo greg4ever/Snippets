@@ -12,9 +12,8 @@ namespace SnippetsTest.Basics.TPL
     class Basics
     {
         [Test]
-        // Promise ~= Future
-        // Future result is set by someone else
-        // Promise result can be set by the user
+        // Future = Task<int>, result is set by the promise
+        // Promise = delegate, set the result for the future
         public void RunFuture()
         {
             Task<int> future = Task.Factory.StartNew<int>(() =>

@@ -19,7 +19,7 @@ namespace SnippetsTest.Basics.Interface
 
     class ConcreteClass : IMyInterface
     {
-        void IA.fun1()
+        void IA.fun1() // Explicit interface, private
         {
         }
 
@@ -28,7 +28,7 @@ namespace SnippetsTest.Basics.Interface
             return 1;
         }
 
-        void IMyInterface.fun1()
+        public void fun1() // Explicit interface, public
         {
         }
     }
@@ -47,12 +47,12 @@ namespace SnippetsTest.Basics.Interface
 
     class MyClass<T> : IEnumerable<T>
     {
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<T> GetEnumerator() // this one is public
         {
             return null;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator() // this one is private
         {
             return GetEnumerator();
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using NUnit.Framework;
 
@@ -8,8 +9,8 @@ namespace SnippetsTest.Basics
 {
     // Only interfaces & delegates support variance
 
-    // T: in = contravariance
-    // R: out = covariance
+    // T: in = contravariance => parameter
+    // R: out = covariance => return type
     interface IMyVariance<in T, out R>
     {
         R MyFunction(T input);
@@ -32,10 +33,7 @@ namespace SnippetsTest.Basics
         public void VarianceTest()
         {
             IMyVariance<ArgumentException, Exception> test = new MyVariance<Exception, ArgumentException>();
-
-            MyDelegate<ArgumentException, Exception> MyDel = x => { return null; };
-            MyDelegate<Exception, ArgumentException> MyDel2 = x => null;
-            MyDel = MyDel2;
+            MyDelegate<ArgumentException, Exception> MyDel = new MyDelegate<Exception, ArgumentException>((x) => null);
         }
 
         [Test]

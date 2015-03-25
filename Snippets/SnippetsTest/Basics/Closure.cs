@@ -23,7 +23,7 @@ namespace SnippetsTest.Basics
 
             Console.WriteLine();
 
-            // Display 10, 10, 10, ... - because not using foreach
+            // Display 10, 10, 10, in C# 5 ... - because not using foreach
             actions = new List<Action>();
             for (var i = 0; i < 10; i++)
                 actions.Add(() => Console.Write(i  + " "));

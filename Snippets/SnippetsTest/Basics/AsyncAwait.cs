@@ -11,6 +11,9 @@ namespace SnippetsTest.Basics.Await
     [TestFixture]
     class TestClass
     {
+        // Future = Task<T> (will read the value written by the promise or blocking until the promise completion)
+        // Promise = Does the job, write the value for the Future to complete)
+
         [Test]
         public async Task<int> Run() // C# 5 - The return type with async must be void, Task or Task<T>
         {
