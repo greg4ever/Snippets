@@ -15,15 +15,13 @@ namespace SnippetsTest.Exo
         {
             Func<int, int[]> func = n =>
             {
-                if (n == 0) return new int[] {};
-                if (n == 1) return new [] { 0 };
-                if (n == 2) return new [] { 0, 1};
+                if (n == 0 || n == 1) return new [] { n };
 
-                var fibos = new int[n];
+                var fibos = new int[n + 1];
                 fibos[0] = 0;
                 fibos[1] = 1;
 
-                for (int i = 2; i < n; ++i)
+                for (int i = 2; i <= n; ++i)
                 {
                     fibos[i] = fibos[i - 1] + fibos[i - 2];
                 }
@@ -41,8 +39,7 @@ namespace SnippetsTest.Exo
             Func<int, List<int>> func = null;
             func = n =>
             {
-                if (n == 0) return new List<int>();
-                if (n == 1) return new List<int> { 0 };
+                if (n == 0 || n == 1) return new List<int>{ n };
                 if (n == 2) return new List<int> { 0, 1 };
 
                 var fibo_n1 = func(n - 1);
@@ -62,7 +59,6 @@ namespace SnippetsTest.Exo
             Func<int, int> func = n =>
             {
                 if (n == 0 || n == 1) return n;
-                if (n == 2) return 2;
 
                 var a = 0;
                 var b = 1;
@@ -87,8 +83,6 @@ namespace SnippetsTest.Exo
             func = n =>
             {
                 if (n == 0 || n == 1) return n;
-                if (n == 2) return 1;
-
                 return func(n - 1) + func(n - 2);
             };
 
