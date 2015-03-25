@@ -92,6 +92,7 @@
     <Compile Include="Exo\Fibo.cs" />
     <Compile Include="Exo\NumberOfPaths.cs" />
     <Compile Include="Exo\Permutation.cs" />
+    <Compile Include="Exo\PrimeNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sandbox.cs" />
     <Compile Include="Tree\TreeNode.cs" />
