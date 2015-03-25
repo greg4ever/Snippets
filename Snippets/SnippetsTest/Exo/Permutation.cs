@@ -15,17 +15,17 @@ namespace SnippetsTest.Exo
             var permutations = GetPermutations(5, new[] { 2, 3, 5, 6, 7, 9 });
             var res = permutations.Count;
         }
-
-        [Test]
+        
         // 2 3 4
         // 2 4 3
         // 3 2 4
         // 3 4 2
         // 4 2 3
         // 4 3 2
+        [Test]
         public void RunHeapAlgo()
         {
-            var permutations = HeapAlgoIter(new List<int> { 2, 3, 4 }, 3);
+            var permutations = HeapAlgoRecu(new List<int> { 2, 3, 4 }, 3);
         }
 
         private static void swap(List<int> v, int i, int j)
