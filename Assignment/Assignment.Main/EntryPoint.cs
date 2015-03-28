@@ -16,7 +16,7 @@ namespace Assignment.Main
         {
             if (args == null || args.Length != 1)
             {
-                Console.Error.WriteLine("Bad parameter. Usage: Assignment [FILE]");
+                Console.Error.WriteLine("Bad parameter. Usage: Assignment.Main.exe [FILE]");
                 return;
             }
 
