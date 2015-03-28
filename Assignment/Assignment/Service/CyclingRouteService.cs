@@ -29,14 +29,15 @@ namespace Assignment.Service
         {
             if (route == null || route.SectionRatings == null)
             {
-                return new CyclingItinerary();
+                return new CyclingItinerary(1, 1);
             }
 
             var sectionRatings = route.SectionRatings;
 
-            var maxSum  = 0;
+            var maxSum     = 0;
             var currentSum = 0;
 
+            // Indexes start at -1 as we here positioned at the first stop, before the first segment
             var beginIndex        = -1;
             var endIndex          = -1;
             var currentBeginIndex = -1;
@@ -61,6 +62,7 @@ namespace Assignment.Service
                 }
             }
 
+            // We add +2 because the result is 1-based, and we need to count the first stop
             return new CyclingItinerary(beginIndex + 2, endIndex + 2);
         }
     }

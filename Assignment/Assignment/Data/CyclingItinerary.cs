@@ -25,11 +25,6 @@ namespace Assignment.Data
         /// </summary>
         public int BusStopEnd { get; private set; }
 
-        public CyclingItinerary()
-        {
-            ;
-        }
-
         public CyclingItinerary(int busStopBegin, int busStopEnd)
         {
             BusStopBegin = busStopBegin;
