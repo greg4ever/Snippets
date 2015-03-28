@@ -55,6 +55,14 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
+        public void GivenTwoEqualRoutes_ShouldReturnTheFirst()
+        {
+            var res = _service.GetCyclingRoutes(TestHelper.GenerateRoutes(new[] { 1, 2, -100, 2, 1 }));
+            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
+            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res[0]);
+        }
+
+        [TestMethod]
         public void GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
         {
             var routes = TestHelper.GenerateRoutes(
@@ -77,11 +85,15 @@ namespace Assignment.Test.UnitTest
             var routes = TestHelper.GenerateRoutes(
                             new[] { 12, -3, 7, -5 },
                             new[] { -10, -10, 5 },
+                            new[] { 5, 5, -10, -10 }
                             );
 
             var res = _service.GetCyclingRoutes(routes);
 
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 3);
+            AssertionHelper.AssertCyclingItinerary(true, 1, 4, res[0]);
+            AssertionHelper.AssertCyclingItinerary(true, 3, 4, res[1]);
+            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res[2]);
         }
     }
 }
