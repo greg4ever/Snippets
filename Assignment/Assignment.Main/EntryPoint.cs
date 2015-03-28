@@ -10,8 +10,15 @@ using Microsoft.SqlServer.Server;
 
 namespace Assignment.Main
 {
+    /// <summary>
+    /// The entry point class for the application
+    /// </summary>
     class EntryPoint
     {
+        /// <summary>
+        /// The entry point for the application
+        /// </summary>
+        /// <param name="args">a list of command line arguments</param>
         static void Main(string[] args)
         {
             if (args == null || args.Length != 1)
@@ -23,6 +30,10 @@ namespace Assignment.Main
             ProcessFile(args[0]);
         }
 
+        /// <summary>
+        /// Read a RouteDescription file and write on standard output the longest continous cycling segments
+        /// </summary>
+        /// <param name="filePath">a RouteDescription file</param>
         private static void ProcessFile(string filePath)
         {
             if (!File.Exists(filePath))
@@ -54,8 +65,8 @@ namespace Assignment.Main
                 Console.Write("route {0}: ", i + 1);
                 if (cyclingItineraries[i].IsCyclingPossible)
                 {
-                    Console.WriteLine("cycle between stops {0} and {1}", cyclingItineraries[i].BusStopBegin, 
-                                                                         cyclingItineraries[i].BusStopEnd);
+                    Console.WriteLine("cycle between stops {0} and {1}", cyclingItineraries[i].StartingBusStop, 
+                                                                         cyclingItineraries[i].EndingBusStop);
                 }
                 else
                 {

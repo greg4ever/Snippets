@@ -5,30 +5,40 @@ using System.Text;
 
 namespace Assignment.Data
 {
+    /// <summary>
+    /// This class represents a cycling segment
+    /// </summary>
     public sealed class CyclingSegment
     {
         /// <summary>
-        /// 
+        /// Gets if any cycling is possible
         /// </summary>
         public bool IsCyclingPossible
         {
-            get { return BusStopBegin != BusStopEnd; }
+            get { return StartingBusStop != EndingBusStop; }
         }
 
         /// <summary>
-        /// 
+        /// Gets the starting bust stop number
+        /// Invalid state if <see cref="IsCyclingPossible"/> is false
         /// </summary>
-        public int BusStopBegin { get; private set; }
+        public int StartingBusStop { get; private set; }
 
         /// <summary>
-        /// 
+        /// Gets the ending bus stop number
+        /// Invalid state if <see cref="IsCyclingPossible"/> is false
         /// </summary>
-        public int BusStopEnd { get; private set; }
+        public int EndingBusStop { get; private set; }
 
-        public CyclingSegment(int busStopBegin, int busStopEnd)
+        /// <summary>
+        /// The class constructor
+        /// </summary>
+        /// <param name="startingBusStop">the starting bus stop number</param>
+        /// <param name="endingBusStop">the ending bus stop number</param>
+        public CyclingSegment(int startingBusStop, int endingBusStop)
         {
-            BusStopBegin = busStopBegin;
-            BusStopEnd   = busStopEnd;
+            StartingBusStop = startingBusStop;
+            EndingBusStop   = endingBusStop;
         }
     }
 }

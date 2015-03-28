@@ -26,8 +26,8 @@ namespace Assignment.Test
         {
             Assert.IsNotNull(cyclingItinerary);
             Assert.AreEqual(expectedIsCyclable,   cyclingItinerary.IsCyclingPossible);
-            Assert.AreEqual(expectedBusStopBegin, cyclingItinerary.BusStopBegin);
-            Assert.AreEqual(expectedBusStopEnd,   cyclingItinerary.BusStopEnd);
+            Assert.AreEqual(expectedBusStopBegin, cyclingItinerary.StartingBusStop);
+            Assert.AreEqual(expectedBusStopEnd,   cyclingItinerary.EndingBusStop);
         }
     }
 }
