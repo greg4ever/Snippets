@@ -25,7 +25,7 @@ namespace Assignment.Test.PerformanceTest
         {
             const int nbRoutes     = 100;
             const int routesLength = 100000;
-            const int timeoutInMs  = 2000;
+            const int timeoutInMs  = 3000;
 
             var mre = new ManualResetEvent(false);
             IList<CyclingSegment> res = null;
