@@ -44,7 +44,6 @@
     <Compile Include="Data\RouteDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CyclingRouteService.cs" />
-    <Compile Include="Service\ICyclingRouteService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

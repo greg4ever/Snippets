@@ -6,8 +6,13 @@ using Assignment.Data;
 
 namespace Assignment.Service
 {
-    public class CyclingRouteService : ICyclingRouteService
+    public class CyclingRouteService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="routes"></param>
+        /// <returns></returns>
         public IList<CyclingItinerary> GetCyclingRoutes(IList<RouteDescription> routes)
         {
             if (routes == null)

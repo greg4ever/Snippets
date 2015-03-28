@@ -8,7 +8,7 @@ namespace Assignment.Test.UnitTest
     [TestClass]
     public class CyclingRouteServiceTest
     {
-        private ICyclingRouteService _service;
+        private CyclingRouteService _service;
 
         [TestInitialize]
         public void BeforeTest()

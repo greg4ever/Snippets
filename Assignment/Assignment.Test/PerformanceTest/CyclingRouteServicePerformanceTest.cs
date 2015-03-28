@@ -10,7 +10,7 @@ namespace Assignment.Test.PerformanceTest
     [TestClass]
     public class CyclingRouteServicePerformanceTest
     {
-        private ICyclingRouteService _service;
+        private CyclingRouteService _service;
 
         [TestInitialize]
         public void BeforeTest()
