@@ -8,7 +8,7 @@ namespace Assignment.Data
     /// <summary>
     /// This class represents a route description
     /// </summary>
-    public sealed class RouteDescription
+    public class RouteDescription
     {
         /// <summary>
         /// Gets the segment ratings for the route

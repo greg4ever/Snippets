@@ -8,7 +8,7 @@ namespace Assignment.Data
     /// <summary>
     /// This class represents a cycling segment
     /// </summary>
-    public sealed class CyclingSegment
+    public class CyclingSegment
     {
         /// <summary>
         /// Gets if any cycling is possible
