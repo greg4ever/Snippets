@@ -6,33 +6,33 @@ using Assignment.Data;
 
 namespace Assignment.Service
 {
-    public class CyclingRouteService
+    public class CyclingSegmentService
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="routes"></param>
         /// <returns></returns>
-        public IList<CyclingItinerary> GetCyclingRoutes(IList<RouteDescription> routes)
+        public IList<CyclingSegment> GetCyclingSegments(IList<RouteDescription> routes)
         {
             if (routes == null)
             {
-                return new List<CyclingItinerary>();
+                return new List<CyclingSegment>();
             }
 
-            var itineraries = new List<CyclingItinerary>(routes.Count);
-            itineraries.AddRange(routes.Select(ComputeCyclingItinerary));
+            var itineraries = new List<CyclingSegment>(routes.Count);
+            itineraries.AddRange(routes.Select(ComputeCyclingSegment));
             return itineraries;
         }
 
-        private CyclingItinerary ComputeCyclingItinerary(RouteDescription route)
+        private CyclingSegment ComputeCyclingSegment(RouteDescription route)
         {
-            if (route == null || route.SectionRatings == null)
+            if (route == null || route.SegmentRatings == null)
             {
-                return new CyclingItinerary(1, 1);
+                return new CyclingSegment(1, 1);
             }
 
-            var sectionRatings = route.SectionRatings;
+            var sectionRatings = route.SegmentRatings;
 
             var maxSum     = 0;
             var currentSum = 0;
@@ -48,6 +48,7 @@ namespace Assignment.Service
                 if (currentSum >= 0)
                 {
                     if (currentSum > maxSum ||
+                        // we prefer longest segment
                         currentSum == maxSum && (i - currentBeginIndex) > (endIndex - beginIndex))
                     {
                         beginIndex = currentBeginIndex;
@@ -62,8 +63,8 @@ namespace Assignment.Service
                 }
             }
 
-            // We add +2 because the result is 1-based, and we need to count the first stop
-            return new CyclingItinerary(beginIndex + 2, endIndex + 2);
+            // We add +2 because the result is 1-based, plus we need to count the first stop
+            return new CyclingSegment(beginIndex + 2, endIndex + 2);
         }
     }
 }

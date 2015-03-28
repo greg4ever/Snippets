@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CyclingItinerary.cs" />
+    <Compile Include="Data\CyclingSegment.cs" />
     <Compile Include="Data\RouteDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\CyclingRouteService.cs" />
+    <Compile Include="Service\CyclingSegmentService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,14 +10,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Assignment.Test.PerformanceTest
 {
     [TestClass]
-    public class CyclingRouteServicePerformanceTest
+    public class CyclingSegmentServicePerformanceTest
     {
-        private CyclingRouteService _service;
+        private CyclingSegmentService _service;
 
         [TestInitialize]
         public void BeforeTest()
         {
-            _service = new CyclingRouteService();
+            _service = new CyclingSegmentService();
         }
 
         [TestMethod]
@@ -28,11 +28,11 @@ namespace Assignment.Test.PerformanceTest
             const int timeoutInMs  = 2000;
 
             var mre = new ManualResetEvent(false);
-            IList<CyclingItinerary> res = null;
+            IList<CyclingSegment> res = null;
 
             Task.Factory.StartNew(() =>
             {
-                res = _service.GetCyclingRoutes(GenerateRandomRoutes(nbRoutes, routesLength));
+                res = _service.GetCyclingSegments(GenerateRandomRoutes(nbRoutes, routesLength));
                 mre.Set();
             });
 

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Assignment.Data
 {
-    public sealed class CyclingItinerary
+    public sealed class CyclingSegment
     {
         /// <summary>
         /// 
         /// </summary>
-        public bool IsCyclable
+        public bool IsCyclingPossible
         {
             get { return BusStopBegin != BusStopEnd; }
         }
@@ -25,7 +25,7 @@ namespace Assignment.Data
         /// </summary>
         public int BusStopEnd { get; private set; }
 
-        public CyclingItinerary(int busStopBegin, int busStopEnd)
+        public CyclingSegment(int busStopBegin, int busStopEnd)
         {
             BusStopBegin = busStopBegin;
             BusStopEnd   = busStopEnd;

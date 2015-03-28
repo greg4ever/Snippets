@@ -10,11 +10,11 @@ namespace Assignment.Data
         /// <summary>
         /// 
         /// </summary>
-        public List<int> SectionRatings { get; private set; }
+        public List<int> SegmentRatings { get; private set; }
 
-        public RouteDescription(List<int> sectionRatings)
+        public RouteDescription(List<int> segmentRatings)
         {
-            SectionRatings = sectionRatings;
+            SegmentRatings = segmentRatings;
         }
     }
 }

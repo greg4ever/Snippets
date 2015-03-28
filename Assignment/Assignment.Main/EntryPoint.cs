@@ -47,12 +47,12 @@ namespace Assignment.Main
                 routesDescription.Add(new RouteDescription(sectionsRating));
             }
 
-            var cyclingItineraries = new CyclingRouteService().GetCyclingRoutes(routesDescription);
+            var cyclingItineraries = new CyclingSegmentService().GetCyclingSegments(routesDescription);
 
             for (int i = 0; i < cyclingItineraries.Count; ++i)
             {
                 Console.Write("route {0}: ", i + 1);
-                if (cyclingItineraries[i].IsCyclable)
+                if (cyclingItineraries[i].IsCyclingPossible)
                 {
                     Console.WriteLine("cycle between stops {0} and {1}", cyclingItineraries[i].BusStopBegin, 
                                                                          cyclingItineraries[i].BusStopEnd);
