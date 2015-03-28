@@ -31,7 +31,7 @@ namespace Assignment.Main
         }
 
         /// <summary>
-        /// Read a RouteDescription file and write on standard output the longest continous cycling segments
+        /// Read a RouteDescription file and write on standard output the longest continuous cycling segments
         /// </summary>
         /// <param name="filePath">a RouteDescription file</param>
         private static void ProcessFile(string filePath)
