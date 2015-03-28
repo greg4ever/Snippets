@@ -34,9 +34,10 @@ namespace Assignment.Service
 
             var sectionRatings = route.SectionRatings;
 
-            var currentSum = 0;
-            var beginIndex = -1;
-            var endIndex   = -1;
+            var currentSum          = 0;
+            var beginIndex          = -1;
+            var potentialBeginIndex = -1;
+            var endIndex            = -1;
 
             for (int i = 0; i < sectionRatings.Count; ++i)
             {
@@ -45,15 +46,15 @@ namespace Assignment.Service
                 {
                     if (newSum >= currentSum)
                     {
-                        endIndex = i;
+                        beginIndex = potentialBeginIndex;
+                        endIndex   = i;
                     }
                     currentSum = newSum;
                 }
                 else
                 {
-                    currentSum = 0;
-                    beginIndex = i;
-                    endIndex   = i;
+                    currentSum          = 0;
+                    potentialBeginIndex = i;
                 }
             }
 

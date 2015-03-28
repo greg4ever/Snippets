@@ -39,6 +39,22 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
+        public void GivenOnlyNegativeRatings_ShouldReturnNotCyclable()
+        {
+            var res = _service.GetCyclingRoutes(TestHelper.GenerateRoutes(new [] { -1, -2, -3, -4, -5}));
+            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
+            AssertionHelper.AssertCyclingItinerary(false, res[0]);
+        }
+
+        [TestMethod]
+        public void GivenOnlyPositiveRatings_ShouldReturnEntireRoute()
+        {
+            var res = _service.GetCyclingRoutes(TestHelper.GenerateRoutes(new [] { 1, 2, 3, 4, 5 }));
+            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
+            AssertionHelper.AssertCyclingItinerary(true, 1, 6, res[0]);
+        }
+
+        [TestMethod]
         public void GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
         {
             var routes = TestHelper.GenerateRoutes(
@@ -53,6 +69,19 @@ namespace Assignment.Test.UnitTest
             AssertionHelper.AssertCyclingItinerary(true, 2, 3, res[0]);
             AssertionHelper.AssertCyclingItinerary(true, 3, 9, res[1]);
             AssertionHelper.AssertCyclingItinerary(false, res[2]);
+        }
+
+        [TestMethod]
+        public void GivenCustomInputs_ShouldReturnExpectedOutputs()
+        {
+            var routes = TestHelper.GenerateRoutes(
+                            new[] { 12, -3, 7, -5 },
+                            new[] { -10, -10, 5 },
+                            );
+
+            var res = _service.GetCyclingRoutes(routes);
+
+            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 3);
         }
     }
 }
