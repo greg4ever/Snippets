@@ -9,10 +9,11 @@ namespace Assignment.Service
     public class CyclingSegmentService
     {
         /// <summary>
-        /// 
+        /// Given a list of route descriptions, compute and return the longest continuous cycling semgments.
+        /// Input order is preserved.
         /// </summary>
-        /// <param name="routes"></param>
-        /// <returns></returns>
+        /// <param name="routes">the route descriptions</param>
+        /// <returns>the longest continuous cycling segments</returns>
         public IList<CyclingSegment> GetCyclingSegments(IList<RouteDescription> routes)
         {
             if (routes == null)
@@ -25,6 +26,11 @@ namespace Assignment.Service
             return itineraries;
         }
 
+        /// <summary>
+        /// Give a route description, compute and return the longest continuous cycling segment.
+        /// </summary>
+        /// <param name="route">the route description</param>
+        /// <returns>the longest continuous cycling segment</returns>
         private CyclingSegment ComputeCyclingSegment(RouteDescription route)
         {
             if (route == null || route.SegmentRatings == null)
