@@ -29,7 +29,7 @@ namespace Assignment.Service
         {
             if (route == null || route.SectionRatings == null)
             {
-                return new CyclingItinerary();;
+                return new CyclingItinerary();
             }
 
             var sectionRatings = route.SectionRatings;
