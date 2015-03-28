@@ -8,7 +8,7 @@ namespace Assignment.Test.UnitTest
     [TestClass]
     public class CyclingRouteServiceTest
     {
-        private CyclingRouteService _service;
+        private CyclingRouteService _service; 
 
         [TestInitialize]
         public void BeforeTest()
@@ -84,8 +84,8 @@ namespace Assignment.Test.UnitTest
         {
             var routes = TestHelper.GenerateRoutes(
                             new[] { 12, -3, 7, -5 },
-                            new[] { -10, -10, 5 },
-                            new[] { 5, 5, -10, -10 }
+                            new[] { -10, -10, 5, -10, -10 },
+                            new[] { 5, 5, -10, -10, 5, 5, -10 }
                             );
 
             var res = _service.GetCyclingRoutes(routes);
