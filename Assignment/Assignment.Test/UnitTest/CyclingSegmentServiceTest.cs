@@ -32,7 +32,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenEmptyRoute_ShouldReturnNotCyclable()
+        public void GivenEmptyRoute_ShouldReturnNoCycling()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new int[] { }));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -40,7 +40,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenOnlyNegativeRatings_ShouldReturnNotCyclable()
+        public void GivenOnlyNegativeRatings_ShouldReturnNoCycling()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new [] { -1, -2, -3, -4, -5}));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
