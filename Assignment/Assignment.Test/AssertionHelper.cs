@@ -15,19 +15,19 @@ namespace Assignment.Test
             Assert.AreEqual(expectedSize, list.Count);
         }
 
-        public static void AssertCyclingItinerary(bool expectedIsCyclable, CyclingSegment cyclingItinerary)
+        public static void AssertCyclingItinerary(bool expectedIsCyclable, CyclingSegment cyclingSegment)
         {
-            Assert.IsNotNull(cyclingItinerary);
-            Assert.AreEqual(expectedIsCyclable, cyclingItinerary.IsCyclingPossible);
+            Assert.IsNotNull(cyclingSegment);
+            Assert.AreEqual(expectedIsCyclable, cyclingSegment.IsCyclingPossible);
         }
 
         public static void AssertCyclingItinerary(bool expectedIsCyclable, int expectedBusStopBegin, int expectedBusStopEnd,
-            CyclingSegment cyclingItinerary)
+            CyclingSegment cyclingSegment)
         {
-            Assert.IsNotNull(cyclingItinerary);
-            Assert.AreEqual(expectedIsCyclable,   cyclingItinerary.IsCyclingPossible);
-            Assert.AreEqual(expectedBusStopBegin, cyclingItinerary.StartingBusStop);
-            Assert.AreEqual(expectedBusStopEnd,   cyclingItinerary.EndingBusStop);
+            Assert.IsNotNull(cyclingSegment);
+            Assert.AreEqual(expectedIsCyclable,   cyclingSegment.IsCyclingPossible);
+            Assert.AreEqual(expectedBusStopBegin, cyclingSegment.StartingBusStop);
+            Assert.AreEqual(expectedBusStopEnd,   cyclingSegment.EndingBusStop);
         }
     }
 }
