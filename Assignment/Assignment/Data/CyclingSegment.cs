@@ -20,13 +20,13 @@ namespace Assignment.Data
 
         /// <summary>
         /// Gets the starting bust stop number
-        /// Invalid state if <see cref="IsCyclingPossible"/> is false
+        /// Undefined if <see cref="IsCyclingPossible"/> is false
         /// </summary>
         public int StartingBusStop { get; private set; }
 
         /// <summary>
         /// Gets the ending bus stop number
-        /// Invalid state if <see cref="IsCyclingPossible"/> is false
+        /// Undefined if <see cref="IsCyclingPossible"/> is false
         /// </summary>
         public int EndingBusStop { get; private set; }
 

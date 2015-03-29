@@ -6,6 +6,9 @@ using Assignment.Data;
 
 namespace Assignment.Service
 {
+    /// <summary>
+    /// This class exposes functionalities related to a route
+    /// </summary>
     public class CyclingSegmentService
     {
         /// <summary>
