@@ -43,7 +43,7 @@
     <Compile Include="Data\CyclingSegment.cs" />
     <Compile Include="Data\RouteDescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\CyclingSegmentService.cs" />
+    <Compile Include="Service\RouteService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

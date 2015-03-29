@@ -9,7 +9,7 @@ namespace Assignment.Service
     /// <summary>
     /// This class exposes functionalities related to a route
     /// </summary>
-    public class CyclingSegmentService
+    public class RouteService
     {
         /// <summary>
         /// Given a list of route descriptions, compute and return the longest continuous cycling semgments.
@@ -57,7 +57,7 @@ namespace Assignment.Service
                 if (currentSum >= 0)
                 {
                     if (currentSum > maxSum ||
-                        // we prefer longest segment
+                        // for the same sum, we prefer longest segment
                         currentSum == maxSum && (i - currentBeginIndex) > (endIndex - beginIndex))
                     {
                         beginIndex = currentBeginIndex;

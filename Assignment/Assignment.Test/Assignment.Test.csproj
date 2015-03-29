@@ -52,8 +52,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AssertionHelper.cs" />
-    <Compile Include="PerformanceTest\CyclingSegmentServicePerformanceTest.cs" />
-    <Compile Include="UnitTest\CyclingSegmentServiceTest.cs" />
+    <Compile Include="PerformanceTest\RouteServicePerformanceTest.cs" />
+    <Compile Include="UnitTest\RouteServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

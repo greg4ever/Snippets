@@ -10,18 +10,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Assignment.Test.PerformanceTest
 {
     [TestClass]
-    public class CyclingSegmentServicePerformanceTest
+    public class RouteServicePerformanceTest
     {
-        private CyclingSegmentService _service;
+        private RouteService _service;
 
         [TestInitialize]
         public void BeforeTest()
         {
-            _service = new CyclingSegmentService();
+            _service = new RouteService();
         }
 
         [TestMethod]
-        public void GivenLargeEntries_ShouldExecuteOnTime()
+        public void GetCyclingSegments_GivenLargeEntries_ShouldExecuteOnTime()
         {
             const int nbRoutes     = 100;
             const int routesLength = 100000;

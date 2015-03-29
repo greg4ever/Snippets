@@ -7,32 +7,32 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Assignment.Test.UnitTest
 {
     [TestClass]
-    public class CyclingSegmentServiceTest
+    public class RouteServiceTest
     {
-        private CyclingSegmentService _service; 
+        private RouteService _service; 
 
         [TestInitialize]
         public void BeforeTest()
         {
-            _service = new CyclingSegmentService();
+            _service = new RouteService();
         }
 
         [TestMethod]
-        public void GivenNullParameter_ShouldReturnEmpty()
+        public void GetCyclingSegments_GivenNullParameter_ShouldReturnEmpty()
         {
             var res = _service.GetCyclingSegments(null);
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 0);
         }
 
         [TestMethod]
-        public void GivenEmptyParameter_ShouldReturnEmpty()
+        public void GetCyclingSegments_GivenEmptyParameter_ShouldReturnEmpty()
         {
             var res = _service.GetCyclingSegments(new List<RouteDescription>());
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 0);
         }
 
         [TestMethod]
-        public void GivenEmptyRoute_ShouldReturnNoCycling()
+        public void GetCyclingSegments_GivenEmptyRoute_ShouldReturnNoCycling()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new int[] { }));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -40,7 +40,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenOnlyNegativeRatings_ShouldReturnNoCycling()
+        public void GetCyclingSegments_GivenOnlyNegativeRatings_ShouldReturnNoCycling()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new [] { -1, -2, -3, -4, -5}));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -48,7 +48,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenOnlyPositiveRatings_ShouldReturnEntireRoute()
+        public void GetCyclingSegments_GivenOnlyPositiveRatings_ShouldReturnEntireRoute()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new [] { 1, 2, 3, 4, 5 }));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -56,7 +56,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenTwoEqualSegments_ShouldReturnTheFirst()
+        public void GetCyclingSegments_GivenTwoEqualSegments_ShouldReturnTheFirst()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new[] { 1, 2, -100, 2, 1 }));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -64,7 +64,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenTwoEquivalentSegments_ShouldReturnTheLongest()
+        public void GetCyclingSegments_GivenTwoEquivalentSegments_ShouldReturnTheLongest()
         {
             var res = _service.GetCyclingSegments(GenerateRoutes(new[] { 1, 2, -100, 1, 1, 1 }));
             AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
@@ -72,7 +72,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
+        public void GetCyclingSegments_GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
         {
             var routes = GenerateRoutes(
                             new[] { -3, 7 },
@@ -89,7 +89,7 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GivenCustomInputs_ShouldReturnExpectedOutputs()
+        public void GetCyclingSegments_GivenCustomInputs_ShouldReturnExpectedOutputs()
         {
             var routes = GenerateRoutes(
                             new[] { 12, -3, 7, -5 },

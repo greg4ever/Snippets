@@ -63,7 +63,7 @@ namespace Assignment.Main
                 }
             }
 
-            var cyclingSegments = new CyclingSegmentService().GetCyclingSegments(routesDescription);
+            var cyclingSegments = new RouteService().GetCyclingSegments(routesDescription);
 
             for (int i = 0; i < cyclingSegments.Count; ++i)
             {
