@@ -72,7 +72,7 @@ namespace Assignment.Main
         /// <param name="numRoute">the route number</param>
         private static void PrintCyclingSegment(CyclingSegment cyclingSegment, int numRoute)
         {
-            Console.Write("route {0}: ", numRoute + 1);
+            Console.Write("route {0}: ", numRoute);
             if (cyclingSegment.IsCyclingPossible)
             {
                 Console.WriteLine("cycle between stops {0} and {1}", cyclingSegment.StartingBusStop,
