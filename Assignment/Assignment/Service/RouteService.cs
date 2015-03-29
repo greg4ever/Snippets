@@ -12,7 +12,7 @@ namespace Assignment.Service
     public class RouteService
     {
         /// <summary>
-        /// Give a route description, compute and return the longest continuous cycling segment.
+        /// Given a route description, compute and return the longest continuous cycling segment.
         /// </summary>
         /// <param name="route">the route description</param>
         /// <returns>the longest continuous cycling segment</returns>
@@ -28,7 +28,7 @@ namespace Assignment.Service
             var maxSum     = 0;
             var currentSum = 0;
 
-            // Indexes start at -1 as we here positioned at the first stop, before the first segment
+            // Indexes start at -1 as we here 0-based and positioned at the first stop, before the first segment
             var beginIndex        = -1;
             var endIndex          = -1;
             var currentBeginIndex = -1;
@@ -39,7 +39,7 @@ namespace Assignment.Service
                 if (currentSum >= 0)
                 {
                     if (currentSum > maxSum ||
-                        // for the same sum, we prefer longest segment
+                        // for the same sum, we prefer the longest segment
                         currentSum == maxSum && (i - currentBeginIndex) > (endIndex - beginIndex))
                     {
                         beginIndex = currentBeginIndex;
