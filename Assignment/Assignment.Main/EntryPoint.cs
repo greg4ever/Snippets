@@ -68,7 +68,7 @@ namespace Assignment.Main
         }
 
         /// <summary>
-        /// Write on the standard output the given cycling segment and route number
+        /// Write on the standard output, in the expected format, the given cycling segment and route number
         /// </summary>
         /// <param name="cyclingSegment">the cycling segment</param>
         /// <param name="numRoute">the route number</param>
