@@ -58,7 +58,7 @@ namespace Assignment.Main
                         Select(_ => int.Parse(file.ReadLine())));
 
                     // TODO Perf: File reading, cycling segments computing and Console writing could be done
-                    // in parallel for futher optimization. Might be out of scope for now.
+                    // in parallel for further optimization. Might be out of scope for now.
                     PrintCyclingSegment(
                         routeService.GetCyclingSegment(
                             new RouteDescription(sectionsRating)), 
