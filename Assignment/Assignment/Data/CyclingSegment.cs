@@ -15,7 +15,7 @@ namespace Assignment.Data
         /// </summary>
         public bool IsCyclingPossible
         {
-            get { return StartingBusStop != EndingBusStop; }
+            get { return StartingBusStop < EndingBusStop; }
         }
 
         /// <summary>
