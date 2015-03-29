@@ -12,29 +12,11 @@ namespace Assignment.Service
     public class RouteService
     {
         /// <summary>
-        /// Given a list of route descriptions, compute and return the longest continuous cycling semgments.
-        /// Input order is preserved.
-        /// </summary>
-        /// <param name="routes">the route descriptions</param>
-        /// <returns>the longest continuous cycling segments</returns>
-        public IList<CyclingSegment> GetCyclingSegments(IList<RouteDescription> routes)
-        {
-            if (routes == null)
-            {
-                return new List<CyclingSegment>();
-            }
-
-            var itineraries = new List<CyclingSegment>(routes.Count);
-            itineraries.AddRange(routes.Select(ComputeCyclingSegment));
-            return itineraries;
-        }
-
-        /// <summary>
         /// Give a route description, compute and return the longest continuous cycling segment.
         /// </summary>
         /// <param name="route">the route description</param>
         /// <returns>the longest continuous cycling segment</returns>
-        private CyclingSegment ComputeCyclingSegment(RouteDescription route)
+        public CyclingSegment GetCyclingSegment(RouteDescription route)
         {
             if (route == null || route.SegmentRatings == null)
             {

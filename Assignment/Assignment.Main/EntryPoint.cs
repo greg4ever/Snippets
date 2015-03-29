@@ -42,14 +42,13 @@ namespace Assignment.Main
                 return;
             }
 
-            List<RouteDescription> routesDescription;
+            var routeService = new RouteService();
 
             using (var file = new StreamReader(filePath))
             {
                 var nbRoutes = int.Parse(file.ReadLine());
-                routesDescription = new List<RouteDescription>(nbRoutes);
 
-                for (int i = 0; i < nbRoutes; ++i)
+                for (int i = 1; i <= nbRoutes; ++i)
                 {
                     var nbBusStops = int.Parse(file.ReadLine());
 
@@ -59,24 +58,29 @@ namespace Assignment.Main
                         sectionsRating.Add(int.Parse(file.ReadLine()));
                     }
 
-                    routesDescription.Add(new RouteDescription(sectionsRating));
+                    PrintCyclingSegment(
+                        routeService.GetCyclingSegment(
+                            new RouteDescription(sectionsRating)), i);
                 }
             }
+        }
 
-            var cyclingSegments = new RouteService().GetCyclingSegments(routesDescription);
-
-            for (int i = 0; i < cyclingSegments.Count; ++i)
+        /// <summary>
+        /// Write on the standard output the given cycling segment and route number
+        /// </summary>
+        /// <param name="cyclingSegment">the cycling segment</param>
+        /// <param name="numRoute">the route number</param>
+        private static void PrintCyclingSegment(CyclingSegment cyclingSegment, int numRoute)
+        {
+            Console.Write("route {0}: ", numRoute + 1);
+            if (cyclingSegment.IsCyclingPossible)
             {
-                Console.Write("route {0}: ", i + 1);
-                if (cyclingSegments[i].IsCyclingPossible)
-                {
-                    Console.WriteLine("cycle between stops {0} and {1}", cyclingSegments[i].StartingBusStop, 
-                                                                         cyclingSegments[i].EndingBusStop);
-                }
-                else
-                {
-                    Console.WriteLine("no cycling");
-                }
+                Console.WriteLine("cycle between stops {0} and {1}", cyclingSegment.StartingBusStop,
+                                                                     cyclingSegment.EndingBusStop);
+            }
+            else
+            {
+                Console.WriteLine("no cycling");
             }
         }
     }

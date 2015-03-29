@@ -18,98 +18,76 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenNullParameter_ShouldReturnEmpty()
+        public void GetCyclingSegment_GivenNullParameter_ShouldReturnNoCycling()
         {
-            var res = _service.GetCyclingSegments(null);
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 0);
+            var res = _service.GetCyclingSegment(null);
+            AssertionHelper.AssertCyclingItinerary(false, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenEmptyParameter_ShouldReturnEmpty()
+        public void GetCyclingSegment_GivenEmptyRoute_ShouldReturnNoCycling()
         {
-            var res = _service.GetCyclingSegments(new List<RouteDescription>());
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 0);
+            var res = _service.GetCyclingSegment(GenerateRoute());
+            AssertionHelper.AssertCyclingItinerary(false, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenEmptyRoute_ShouldReturnNoCycling()
+        public void GetCyclingSegment_GivenOnlyNegativeRatings_ShouldReturnNoCycling()
         {
-            var res = _service.GetCyclingSegments(GenerateRoutes(new int[] { }));
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
-            AssertionHelper.AssertCyclingItinerary(false, res[0]);
+            var res = _service.GetCyclingSegment(GenerateRoute(-1, -2, -3, -4, -5));
+            AssertionHelper.AssertCyclingItinerary(false, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenOnlyNegativeRatings_ShouldReturnNoCycling()
+        public void GetCyclingSegment_GivenOnlyPositiveRatings_ShouldReturnEntireRoute()
         {
-            var res = _service.GetCyclingSegments(GenerateRoutes(new [] { -1, -2, -3, -4, -5}));
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
-            AssertionHelper.AssertCyclingItinerary(false, res[0]);
+            var res = _service.GetCyclingSegment(GenerateRoute(1, 2, 3, 4, 5));
+            AssertionHelper.AssertCyclingItinerary(true, 1, 6, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenOnlyPositiveRatings_ShouldReturnEntireRoute()
+        public void GetCyclingSegment_GivenTwoEqualSegments_ShouldReturnTheFirst()
         {
-            var res = _service.GetCyclingSegments(GenerateRoutes(new [] { 1, 2, 3, 4, 5 }));
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
-            AssertionHelper.AssertCyclingItinerary(true, 1, 6, res[0]);
+            var res = _service.GetCyclingSegment(GenerateRoute(1, 2, -100, 2, 1));
+            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenTwoEqualSegments_ShouldReturnTheFirst()
+        public void GetCyclingSegment_GivenTwoEquivalentSegments_ShouldReturnTheLongest()
         {
-            var res = _service.GetCyclingSegments(GenerateRoutes(new[] { 1, 2, -100, 2, 1 }));
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
-            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res[0]);
+            var res = _service.GetCyclingSegment(GenerateRoute(1, 2, -100, 1, 1, 1));
+            AssertionHelper.AssertCyclingItinerary(true, 4, 7, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenTwoEquivalentSegments_ShouldReturnTheLongest()
+        public void GetCyclingSegment_GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
         {
-            var res = _service.GetCyclingSegments(GenerateRoutes(new[] { 1, 2, -100, 1, 1, 1 }));
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
-            AssertionHelper.AssertCyclingItinerary(true, 4, 7, res[0]);
+            var res = _service.GetCyclingSegment(GenerateRoute(-3, 7));
+            AssertionHelper.AssertCyclingItinerary(true, 2, 3, res);
+
+            res = _service.GetCyclingSegment(GenerateRoute(12, -15, 12, -9, 12, 12, -12, 12, -15));
+            AssertionHelper.AssertCyclingItinerary(true, 3, 9, res);
+
+            res = _service.GetCyclingSegment(GenerateRoute(-7, -2, -8));
+            AssertionHelper.AssertCyclingItinerary(false, res);
         }
 
         [TestMethod]
-        public void GetCyclingSegments_GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
+        public void GetCyclingSegment_GivenCustomInputs_ShouldReturnExpectedOutputs()
         {
-            var routes = GenerateRoutes(
-                            new[] { -3, 7 },
-                            new[] { 12, -15, 12, -9, 12, 12, -12, 12, -15 },
-                            new[] { -7, -2, -8}
-                            );
+            var res = _service.GetCyclingSegment(GenerateRoute(12, -3, 7, -5));
+            AssertionHelper.AssertCyclingItinerary(true, 1, 4, res);
 
-            var res = _service.GetCyclingSegments(routes);
+            res = _service.GetCyclingSegment(GenerateRoute(-10, -10, 5, -10, -10));
+            AssertionHelper.AssertCyclingItinerary(true, 3, 4, res);
 
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 3);
-            AssertionHelper.AssertCyclingItinerary(true, 2, 3, res[0]);
-            AssertionHelper.AssertCyclingItinerary(true, 3, 9, res[1]);
-            AssertionHelper.AssertCyclingItinerary(false, res[2]);
+            res = _service.GetCyclingSegment(GenerateRoute(5, 5, -10, -10, 5, 5, -10));
+            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res);
         }
 
-        [TestMethod]
-        public void GetCyclingSegments_GivenCustomInputs_ShouldReturnExpectedOutputs()
+        private static RouteDescription GenerateRoute(params int[] routes)
         {
-            var routes = GenerateRoutes(
-                            new[] { 12, -3, 7, -5 },
-                            new[] { -10, -10, 5, -10, -10 },
-                            new[] { 5, 5, -10, -10, 5, 5, -10 }
-                            );
-
-            var res = _service.GetCyclingSegments(routes);
-
-            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 3);
-            AssertionHelper.AssertCyclingItinerary(true, 1, 4, res[0]);
-            AssertionHelper.AssertCyclingItinerary(true, 3, 4, res[1]);
-            AssertionHelper.AssertCyclingItinerary(true, 1, 3, res[2]);
-        }
-
-        private static List<RouteDescription> GenerateRoutes(params int[][] routes)
-        {
-            var routesAsList = new List<RouteDescription>(routes.Length);
-            routesAsList.AddRange(routes.Select(x => new RouteDescription(x.ToList())));
-            return routesAsList;
+            return new RouteDescription(routes.ToList());
         }
     }
 }

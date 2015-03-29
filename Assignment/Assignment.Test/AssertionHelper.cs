@@ -9,12 +9,6 @@ namespace Assignment.Test
 {
     internal static class AssertionHelper
     {
-        public static void IsListNotNullAndSizeEqualsTo<T>(IList<T> list, int expectedSize)
-        {
-            Assert.IsNotNull(list);
-            Assert.AreEqual(expectedSize, list.Count);
-        }
-
         public static void AssertCyclingItinerary(bool expectedIsCyclable, CyclingSegment cyclingSegment)
         {
             Assert.IsNotNull(cyclingSegment);
