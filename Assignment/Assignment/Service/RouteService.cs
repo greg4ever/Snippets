@@ -33,7 +33,7 @@ namespace Assignment.Service
             var endIndex          = -1;
             var currentBeginIndex = -1;
 
-            for (int i = 0; i < sectionRatings.Count; ++i)
+            for (var i = 0; i < sectionRatings.Count; ++i)
             {
                 currentSum += sectionRatings[i];
                 if (currentSum >= 0)

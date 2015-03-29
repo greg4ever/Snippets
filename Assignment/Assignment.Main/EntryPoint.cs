@@ -48,15 +48,14 @@ namespace Assignment.Main
             {
                 var nbRoutes = int.Parse(file.ReadLine());
 
-                for (int i = 1; i <= nbRoutes; ++i)
+                foreach (var i in Enumerable.Range(1, nbRoutes))
                 {
-                    var nbBusStops = int.Parse(file.ReadLine());
+                    var nbBusStops     = int.Parse(file.ReadLine()) - 1;
+                    var sectionsRating = new List<int>(nbBusStops);
 
-                    var sectionsRating = new List<int>(nbBusStops - 1);
-                    for (int j = 0; j < nbBusStops - 1; ++j)
-                    {
-                        sectionsRating.Add(int.Parse(file.ReadLine()));
-                    }
+                    sectionsRating.AddRange(
+                        Enumerable.Range(1, nbBusStops).
+                        Select(_ => int.Parse(file.ReadLine())));
 
                     PrintCyclingSegment(
                         routeService.GetCyclingSegment(
