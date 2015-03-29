@@ -41,21 +41,25 @@ namespace Assignment.Main
                 Console.Error.WriteLine("File not found: " + filePath);
             }
 
-            var file              = new StreamReader(filePath);
-            var nbRoutes          = int.Parse(file.ReadLine());
-            var routesDescription = new List<RouteDescription>(nbRoutes);
+            List<RouteDescription> routesDescription;
 
-            for (int i = 0; i < nbRoutes; ++i)
+            using (var file = new StreamReader(filePath))
             {
-                var nbBusStops = int.Parse(file.ReadLine());
+                var nbRoutes = int.Parse(file.ReadLine());
+                routesDescription = new List<RouteDescription>(nbRoutes);
 
-                var sectionsRating = new List<int>(nbBusStops - 1);
-                for (int j = 0; j < nbBusStops - 1; ++j)
+                for (int i = 0; i < nbRoutes; ++i)
                 {
-                    sectionsRating.Add(int.Parse(file.ReadLine()));
-                }
+                    var nbBusStops = int.Parse(file.ReadLine());
 
-                routesDescription.Add(new RouteDescription(sectionsRating));
+                    var sectionsRating = new List<int>(nbBusStops - 1);
+                    for (int j = 0; j < nbBusStops - 1; ++j)
+                    {
+                        sectionsRating.Add(int.Parse(file.ReadLine()));
+                    }
+
+                    routesDescription.Add(new RouteDescription(sectionsRating));
+                }
             }
 
             var cyclingItineraries = new CyclingSegmentService().GetCyclingSegments(routesDescription);

@@ -64,6 +64,14 @@ namespace Assignment.Test.UnitTest
         }
 
         [TestMethod]
+        public void GivenTwoEquivalentSegments_ShouldReturnTheLongest()
+        {
+            var res = _service.GetCyclingSegments(GenerateRoutes(new[] { 1, 2, -100, 1, 1, 1 }));
+            AssertionHelper.IsListNotNullAndSizeEqualsTo(res, 1);
+            AssertionHelper.AssertCyclingItinerary(true, 4, 7, res[0]);
+        }
+
+        [TestMethod]
         public void GivenAssignmentInputs_ShouldReturnAssignmentOutputs()
         {
             var routes = GenerateRoutes(
