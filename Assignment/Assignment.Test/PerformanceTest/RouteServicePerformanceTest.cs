@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,17 +27,24 @@ namespace Assignment.Test.PerformanceTest
         {
             const int nbRoutes     = 100;
             const int routesLength = 100000;
-            const int timeoutInMs  = 3000;
+            const int timeoutInMs  = 1000;
 
-            var mre = new ManualResetEvent(false);
+            var mre    = new ManualResetEvent(false);
             var routes = GenerateRandomRoutes(nbRoutes, routesLength);
 
             Task.Factory.StartNew(() =>
             {
+                var sw = new Stopwatch();
+                sw.Start();
+
                 foreach (var route in routes)
                 {
                     _service.GetCyclingSegment(route);
                 }
+
+                sw.Stop();
+                Debug.WriteLine("Elapsed time: ({0}) ms", sw.ElapsedMilliseconds);
+
                 mre.Set();
             });
 
@@ -49,10 +57,10 @@ namespace Assignment.Test.PerformanceTest
         {
             var routes = new List<RouteDescription>(nbRoutes);
 
-            for (int i = 0; i < nbRoutes; ++i)
+            for (var i = 0; i < nbRoutes; ++i)
             {
                 routes.Add(new RouteDescription(
-                    Enumerable.Range(1, routesLength).Select(x => _rand.Next(-100, 100)).ToList()));
+                    Enumerable.Range(1, routesLength).Select(_ => _rand.Next(-100, 100)).ToList()));
             }
 
             return routes;
