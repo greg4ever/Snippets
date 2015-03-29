@@ -57,8 +57,6 @@ namespace Assignment.Main
                         Enumerable.Range(1, nbBusStops).
                         Select(_ => int.Parse(file.ReadLine())));
 
-                    // TODO Perf: An optimization would be to read and compute the cycling segments
-                    // at the same time
                     PrintCyclingSegment(
                         routeService.GetCyclingSegment(
                             new RouteDescription(sectionsRating)), 
