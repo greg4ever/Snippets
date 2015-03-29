@@ -63,15 +63,15 @@ namespace Assignment.Main
                 }
             }
 
-            var cyclingItineraries = new CyclingSegmentService().GetCyclingSegments(routesDescription);
+            var cyclingSegments = new CyclingSegmentService().GetCyclingSegments(routesDescription);
 
-            for (int i = 0; i < cyclingItineraries.Count; ++i)
+            for (int i = 0; i < cyclingSegments.Count; ++i)
             {
                 Console.Write("route {0}: ", i + 1);
-                if (cyclingItineraries[i].IsCyclingPossible)
+                if (cyclingSegments[i].IsCyclingPossible)
                 {
-                    Console.WriteLine("cycle between stops {0} and {1}", cyclingItineraries[i].StartingBusStop, 
-                                                                         cyclingItineraries[i].EndingBusStop);
+                    Console.WriteLine("cycle between stops {0} and {1}", cyclingSegments[i].StartingBusStop, 
+                                                                         cyclingSegments[i].EndingBusStop);
                 }
                 else
                 {
