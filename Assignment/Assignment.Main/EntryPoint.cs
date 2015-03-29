@@ -38,7 +38,8 @@ namespace Assignment.Main
         {
             if (!File.Exists(filePath))
             {
-                Console.Error.WriteLine("File not found: " + filePath);
+                Console.Error.WriteLine("File not found: ({0})", filePath);
+                return;
             }
 
             List<RouteDescription> routesDescription;
