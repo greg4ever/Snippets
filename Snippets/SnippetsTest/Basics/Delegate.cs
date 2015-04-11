@@ -156,5 +156,46 @@ namespace SnippetsTest.Basics
         {
             MyDelegate3 del1 = MyMethod3;
         }
+
+
+        // Currying
+
+        class A
+        {
+            public void Method(Action<int> callback) { }
+        }
+
+        public void Callback(int i, string s) { }
+
+        [Test]
+        public void Currying()
+        {
+            var a = new A();
+            a.Method(_ => Callback(5, "currying"));
+
+            // Equivalent to
+
+            var foo = new Foo(this, 5, "currying");
+            a.Method(foo.IntermediateCallback);
+        }
+
+        class Foo
+        {
+            private DelegateFun a;
+            private string s;
+            private int i;
+
+            public Foo(DelegateFun a, int i, string s)
+            {
+                this.a = a;
+                this.s = s;
+                this.i = i;
+            }
+
+            public void IntermediateCallback(int i)
+            {
+                a.Callback(i, s);
+            }
+        }
     }
 }
